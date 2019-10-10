@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 class PizzaShop(models.Model):
     """Pizzzeria Class"""
+
     class Meta:
         verbose_name = "Пиццерия"
         verbose_name_plural = "Пиццерии"
@@ -20,6 +21,7 @@ class Pizza(models.Model):
     class Meta:
         verbose_name = "Пицца"
         verbose_name_plural = "Пиццы"
+        ordering = ["name"]
 
     pizza_shop = models.ForeignKey(PizzaShop, on_delete=models.CASCADE)
     name = models.CharField(max_length=255, verbose_name="Pizza Name")
