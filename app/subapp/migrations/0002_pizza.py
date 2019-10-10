@@ -6,19 +6,39 @@ import django.db.models.deletion
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('subapp', '0001_initial'),
-    ]
+    dependencies = [("subapp", "0001_initial")]
 
     operations = [
         migrations.CreateModel(
-            name='Pizza',
+            name="Pizza",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255, verbose_name='Pizza Name')),
-                ('description', models.TextField(verbose_name='Description')),
-                ('price', models.FloatField(default=0, verbose_name="Pizza's Price")),
-                ('pizza_shop', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='subapp.PizzaShop')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(
+                        max_length=255, verbose_name="Pizza Name"
+                    ),
+                ),
+                ("description", models.TextField(verbose_name="Description")),
+                (
+                    "price",
+                    models.FloatField(default=0, verbose_name="Pizza's Price"),
+                ),
+                (
+                    "pizza_shop",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="subapp.PizzaShop",
+                    ),
+                ),
             ],
-        ),
+        )
     ]
