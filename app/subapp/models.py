@@ -27,6 +27,7 @@ class Pizza(models.Model):
     name = models.CharField(max_length=255, verbose_name="Pizza Name")
     description = models.TextField(verbose_name="Description")
     price = models.FloatField(default=0, verbose_name="Pizza's Price")
-
+    photo = models.ImageField("Photo", upload_to="subapp/photos", default="", blank=True)
+    
     def __str__(self):
         return self.name
