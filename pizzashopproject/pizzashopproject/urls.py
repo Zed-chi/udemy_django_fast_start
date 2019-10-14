@@ -23,27 +23,17 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", home, name="home"),
     path(
-        "pizzashopapp/sign-in/", 
+        "pizzashopapp/sign-in/",
         auth_views.LoginView.as_view(
             template_name="pizzashopapp/sign_in.html"
-        ), 
-        name="sign_in"
+        ),
+        name="sign_in",
     ),
     path(
-        "pizzashopapp/sign-out/", 
-        auth_views.LogoutView.as_view(
-            next_page="/"
-        ), 
-        name="sign_out"
+        "pizzashopapp/sign-out/",
+        auth_views.LogoutView.as_view(next_page="/"),
+        name="sign_out",
     ),
-    path(
-        "pizzashopapp/", 
-        views.back_home, 
-        name="back_home"
-    ),
-    path(
-        "pizzashopapp/sign-up", 
-        views.sign_up, 
-        name="sign_up"
-    )
+    path("pizzashopapp/", views.back_home, name="back_home"),
+    path("pizzashopapp/sign-up", views.sign_up, name="sign_up"),
 ]
