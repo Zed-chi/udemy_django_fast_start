@@ -13,6 +13,18 @@
 <body>
     
     Registration
-    
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <legend>User</legend>
+            {{ user_form.as_p }}
+        </fieldset>
+        <fieldset>
+                <legend>Pizza</legend>
+            {{ pizza_shop_form.as_p}}
+        </fieldset>
+        
+        <button type="submit">Register</button>
+    </form>
 </body>
 </html>
