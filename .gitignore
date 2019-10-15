@@ -3,3 +3,4 @@ __pycache__
 app/db.sqlite3
 pizzashopproject/media
 pizzashopproject/db.sqlite3
+*.sqlite3
