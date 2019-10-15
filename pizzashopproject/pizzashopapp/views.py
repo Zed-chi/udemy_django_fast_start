@@ -26,17 +26,27 @@ def sign_up(req):
             new_pizzashop = pizza_shop_form.save(commit=False)
             new_pizzashop.owner = new_user
             new_pizzashop.save()
-            login(req, authenticate(
-                username=user_form.cleaned_data["username"],
-                password=user_form.cleaned_data["password"],
-            ))
+            login(
+                req,
+                authenticate(
+                    username=user_form.cleaned_data["username"],
+                    password=user_form.cleaned_data["password"],
+                ),
+            )
             return redirect(back_home)
 
     return render(
-        req, 
+        req,
         "pizzashopapp/sign_up.html",
-        {
-            "user_form":user_form,
-            "pizza_shop_form": pizza_shop_form
-        }
+        {"user_form": user_form, "pizza_shop_form": pizza_shop_form},
     )
+
+
+@login_required(login_url="/pizzashopapp/sign-in")
+def account(req):
+    return render(req, "pizzashopapp/account.html")
+
+
+@login_required(login_url="/pizzashopapp/sign-in")
+def pizza(req):
+    return render(req, "pizzashopapp/pizza.html")
