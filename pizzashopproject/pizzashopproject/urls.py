@@ -18,6 +18,10 @@ from django.urls import path
 from pizzashopapp.views import home
 from pizzashopapp import views
 from django.contrib.auth import views as auth_views
+from django.conf.urls.static import static
+from django.conf import settings
+
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -36,4 +40,4 @@ urlpatterns = [
     ),
     path("pizzashopapp/", views.back_home, name="back_home"),
     path("pizzashopapp/sign-up", views.sign_up, name="sign_up"),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
