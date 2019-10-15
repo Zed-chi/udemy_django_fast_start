@@ -22,7 +22,6 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 
-
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", home, name="home"),
@@ -39,5 +38,7 @@ urlpatterns = [
         name="sign_out",
     ),
     path("pizzashopapp/", views.back_home, name="back_home"),
-    path("pizzashopapp/sign-up", views.sign_up, name="sign_up"),
+    path("pizzashopapp/sign-up/", views.sign_up, name="sign_up"),
+    path("pizzashopapp/account/", views.account, name="account"),
+    path("pizzashopapp/pizza/", views.pizza, name="pizza"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

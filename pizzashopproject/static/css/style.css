@@ -1,0 +1,12 @@
+*{
+    background: white;
+}
+
+.bg-ruby{
+    background: rgb(100,0,50);
+}
+
+.btn-red{
+    color:white;
+    background: red;
+}
