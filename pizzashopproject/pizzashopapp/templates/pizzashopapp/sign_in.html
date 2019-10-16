@@ -1,4 +1,5 @@
 {% extends 'base_sign_app.html' %}
+{% load bootstrap4 %}
 {% block title %}
     Login Page
 {% endblock %}
@@ -11,9 +12,10 @@
 
 {% block content %}
     <form  method="POST">
-            {% csrf_token %}
-        {{form}}
+        {% csrf_token %}
+        {% bootstrap_form form %}
         <input type="submit" class="btn-red pull-right">
     </form>
+    <a href="{% url 'sign_up' %}">Register</a>
 {% endblock %}
     

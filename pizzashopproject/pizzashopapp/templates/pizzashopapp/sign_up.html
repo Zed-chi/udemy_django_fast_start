@@ -1,4 +1,5 @@
 {% extends 'base_sign_app.html' %}
+{% load bootstrap4 %}
 {% block title %}
     Login Page
 {% endblock %}
@@ -12,13 +13,14 @@
         {% csrf_token %}
         <fieldset>
             <legend>User</legend>
-            {{ user_form.as_p }}
+            {% bootstrap_form user_form %}
         </fieldset>
         <fieldset>
-                <legend>Pizza</legend>
-            {{ pizza_shop_form.as_p}}
+            <legend>Pizza</legend>
+            {% bootstrap_form pizza_shop_form %}
         </fieldset>
         
         <input type="submit" class="btn-red pull-right">
     </form>
+    <a href="{% url 'sign_in' %}">Login</a>
 {% endblock %}

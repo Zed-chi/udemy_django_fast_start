@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
 
 {% block aside %}
-    hello , {{request.user}}
-    <br>
+    <div class="text-center">
+        <img src="{{ MEDIA_URL}} {{request.user.pizzashop.logo}}" alt="" class="img-circle">
+        <br>
+        <h4>Hello, {{ request.user.get_fullname}}</h4>
+        <h5>{{ request.pizzashop.name }}</h5>
+    </div>
     <a href="{% url 'account' %}">Profile</a>
     <a href="{% url 'pizza' %}">Pizzas</a>
 {% endblock %}
 
 {% block content %}
-    <quote>Pizza shop</quote>
+    
 {% endblock %}
 http://192.168.99.100:5000/pizzashopapp/account
